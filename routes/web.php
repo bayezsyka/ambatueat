@@ -27,6 +27,10 @@ Route::get('/reservasi', function () {
     return view('reservasi');
 })->middleware(['auth', 'verified'])->name('reservasi'); 
 
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
